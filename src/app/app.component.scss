@@ -1,0 +1,92 @@
+.toolbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  color: white;
+}
+
+ul{
+  padding-inline-start: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+a{
+  color: aliceblue;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.flex-container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 7%;
+}
+.container {
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .sidenav-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidenav {
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    border-radius: 0;
+  }
+  
+  .label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .mat-toolbar-single-row{
+    padding: 0;
+  }
+  
+  .button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 8px;
+  }
+    
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  mat-toolbar{
+    height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .mat-drawer-container {
+    height: 100%;
+    width: 100%;
+  }
+

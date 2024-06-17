@@ -1,3 +1,28 @@
-<app-menu></app-menu>
-<router-outlet />
-
+<mat-toolbar>
+    <mat-drawer-container class="container" autosize>
+        <mat-drawer #drawer class="sidenav" mode="side">
+            <p>LOGO</p>
+            <ul>
+                <li><a href="user"><mat-icon>person</mat-icon><span>USER</span></a></li>
+                <li><a href="dashboard"><mat-icon>dashboard</mat-icon><span>DASHBOARD</span></a></li>
+            </ul>
+            <button (click)="showFiller = !showFiller" mat-raised-button>
+                Toggle extra text
+            </button>
+            @if (showFiller) {
+                <p>Lorem, ipsum dolor sit amet consectetur.</p>
+                }
+        </mat-drawer>
+        <div class="flex-container">
+            <div class="sidenav-content">
+                <div class="button-row">
+                    <button mat-fab (click)="drawer.toggle()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+            </div>
+                <div class="toolbar">Simple CRM</div>
+            </div>
+            <router-outlet />
+    </mat-drawer-container>
+</mat-toolbar>
