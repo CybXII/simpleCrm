@@ -1,7 +1,7 @@
 <mat-toolbar>
-    <mat-drawer-container class="container" autosize>
-        <mat-drawer #drawer class="sidenav" mode="side">
-            <p>LOGO</p>
+    <mat-drawer-container class="container"  autosize>
+        <mat-drawer #drawer class="sidenav" opened="true" mode="side">
+            <p class="logo">LOGO</p>
             <ul>
                 <li><a href="user"><mat-icon>person</mat-icon><span>USER</span></a></li>
                 <li><a href="dashboard"><mat-icon>dashboard</mat-icon><span>DASHBOARD</span></a></li>
@@ -21,8 +21,8 @@
                     </button>
                 </div>
             </div>
-                <div class="toolbar">Simple CRM</div>
-            </div>
-            <router-outlet />
+            <div class="toolbar">Simple CRM</div>
+        </div>
+        <router-outlet />
     </mat-drawer-container>
 </mat-toolbar>

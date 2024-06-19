@@ -1,0 +1,11 @@
+.buttonPosition{
+display: flex;
+flex-direction: row-reverse;
+justify-content: space-around;
+}
+
+.dialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}

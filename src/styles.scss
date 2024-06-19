@@ -4,5 +4,41 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-drawer-content {
-    width: 100%;
+  width: 100%;
 }
+
+.mr-16{
+  margin-right: 16px;
+}
+
+.f-s{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  
+  .mat-toolbar-single-row{
+    padding: 0;
+  }
+  
+  .button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 8px;
+  }
+    
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
