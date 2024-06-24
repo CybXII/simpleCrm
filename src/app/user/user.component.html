@@ -1,3 +1,61 @@
+<!-- <mat-card appearance="outlined">
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+            <tr *ngFor="let user of users">
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.city }}</td>
+            </tr>
+            @for (usersArray of dataSource; track $index) {
+                <td>{{ user.firstname }} {{ user.lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.city }}</td>
+                <td>{{ $index }}</td>
+                <td>{{ user }}</td>
+            }
+        </tbody>    
+    </table>
+</mat-card>
+
+<div class="addUser">
+    <div class="button-container">
+        <button (click)="openDialog()" mat-fab matTooltip="Add user" aria-label="Icon button with a Person icon">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div> -->
+
+
+<mat-card appearance="outlined">
+    <table>
+        <thead>
+            <ng-container matColumnDef="position">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                </tr>
+            </ng-container>
+        </thead>
+        <tbody>
+            @for (user of users; track $index) {
+                <ng-container matColumnDef="position">
+                    <tr>
+                        <td mat-cell>{{ user.firstname }} {{ user.lastname }}</td>
+                        <td mat-cell>{{ user.email }}</td>
+                        <td mat-cell>{{ user.city }}</td>
+                    </tr>
+                </ng-container>
+            }
+        </tbody>
+    </table>
+</mat-card>
+
 <div class="addUser">
     <div class="button-container">
         <button (click)="openDialog()" mat-fab matTooltip="Add user" aria-label="Icon button with a Person icon">

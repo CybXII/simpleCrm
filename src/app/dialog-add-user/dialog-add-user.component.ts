@@ -15,6 +15,8 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { AppComponent } from '../app.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
@@ -30,12 +32,15 @@ import { FormsModule } from '@angular/forms';
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    MatProgressBarModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dialog-add-user.component.html',
   styleUrl: './dialog-add-user.component.scss',
 })
 export class DialogAddUserComponent {
+  loading = false;
+
   user: User = {
     firstname: '',
     lastname: '',
