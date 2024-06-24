@@ -3,8 +3,10 @@ export class User{
     lastname: string;
     birthDate: number;
     street: string;
-    zipCode: number;
+    zipCode: string;
     city: string;
+    email: string;
+    id: string;
 
     constructor(obj?: any) {
         this.firstname = obj ? obj.firstname : '';
@@ -13,5 +15,7 @@ export class User{
         this.street = obj ? obj.street : '';
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
+        this.email =  obj ? obj.email : '';
+        this.id =  obj ? obj.id : '';
     }
 }

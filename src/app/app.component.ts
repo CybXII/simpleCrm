@@ -1,19 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { NgModule } from '@angular/core';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,MatButtonModule,MatSidenavModule,MatIconModule,MatToolbarModule],
+  imports: [RouterOutlet,MatButtonModule,MatSidenavModule,MatIconModule,MatToolbarModule,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'simpleCrm';
+  title = 'simple-crm-c9a56';
   showFiller = false;
+  firestore: Firestore = inject(Firestore);
+  items$: Observable<any[]>;
+
+  constructor() {
+    const Collection = collection(this.firestore, 'users');
+    this.items$ = collectionData(Collection);
+  }
+
 }

@@ -1,16 +1,17 @@
-import {Component,ChangeDetectionStrategy } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {provideNativeDateAdapter} from '@angular/material/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from '../../models/user.class';
-
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import {
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
+  MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
@@ -28,22 +29,38 @@ import { FormsModule } from '@angular/forms';
     MatDialogActions,
     MatDialogClose,
     MatDialogContent,
-    MatDialogTitle],
+    MatDialogTitle,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dialog-add-user.component.html',
-  styleUrl: './dialog-add-user.component.scss'
+  styleUrl: './dialog-add-user.component.scss',
 })
 export class DialogAddUserComponent {
-  user = new User();
+  user: User = {
+    firstname: '',
+    lastname: '',
+    birthDate: 0,
+    street: '',
+    zipCode: '',
+    city: '',
+    email: '',
+    id: '',
+  };
   birthDate?: Date;
-  constructor() { 
+  constructor(
+    private firestore: Firestore,
+    public dialogRef: MatDialogRef<DialogAddUserComponent>
+  ) {}
 
-}
-
+  ngOnInit(): void {}
   saveUser() {
+    const usersCollectionRef = collection(this.firestore, 'users');
+    addDoc(usersCollectionRef, this.user).then((result) => {
+      console.log('Adding user finished', result.id);
+    });
     if (this.birthDate) {
       this.user.birthDate = this.birthDate.getTime();
       console.log(this.user);
-    }    
+    }
   }
 }
