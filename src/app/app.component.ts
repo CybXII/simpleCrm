@@ -7,11 +7,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {Firestore, collection, collectionData } from '@angular/fire/firestore';
 import {Observable } from 'rxjs';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,MatButtonModule,MatSidenavModule,MatIconModule,MatToolbarModule,RouterLink,MatProgressBarModule],
+  imports: [RouterOutlet,MatButtonModule,MatSidenavModule,MatIconModule,MatToolbarModule,RouterLink,MatProgressBarModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -25,5 +26,4 @@ export class AppComponent {
     const Collection = collection(this.firestore, 'users');
     this.items$ = collectionData(Collection);
   }
-
 }
