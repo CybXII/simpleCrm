@@ -4,7 +4,6 @@
 }
 
 <p>
-    
     <mat-dialog-content class="dialog">
         <div>
             <mat-form-field class="mr-16" appearance="outline">
@@ -18,11 +17,16 @@
                 <input [disabled]="loading" [(ngModel)]="user.lastname" matInput placeholder="Placeholder">
                 <!-- <mat-hint>Please enter a name</mat-hint> -->
             </mat-form-field>
-    
         </div>
 
+        <mat-form-field  appearance="outline">
+            <mat-label>Email</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="Placeholder">
+            <!-- <mat-hint>Please enter a name</mat-hint> -->
+        </mat-form-field>   
+
         <mat-form-field appearance="outline">
-            <mat-label>Choose a date</mat-label>
+            <mat-label>Choose your Birthdate</mat-label>
             <input [disabled]="loading" [(ngModel)]="birthDate" matInput [matDatepicker]="picker">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -52,6 +56,6 @@
     </mat-dialog-content>
     <mat-dialog-actions class="buttonPosition">
         <button [disabled]="loading" mat-button mat-dialog-close>Cancel</button>
-        <button [disabled]="loading" (click)="saveUser()" mat-dialog-close>Save</button>
+        <button [disabled]="loading" (click)="saveUser()" mat-button mat-dialog-close>Save</button>
     </mat-dialog-actions>
 </p>

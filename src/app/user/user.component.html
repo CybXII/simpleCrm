@@ -1,42 +1,36 @@
-<!-- <mat-card appearance="outlined">
-    <table>
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>City</th>
-            </tr>
-            <tr *ngFor="let user of users">
-                <td>{{ user.firstname }} {{ user.lastname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.city }}</td>
-            </tr>
-            @for (usersArray of dataSource; track $index) {
-                <td>{{ user.firstname }} {{ user.lastname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.city }}</td>
-                <td>{{ $index }}</td>
-                <td>{{ user }}</td>
-            }
-        </tbody>    
-    </table>
-</mat-card>
-
-<div class="addUser">
-    <div class="button-container">
-        <button (click)="openDialog()" mat-fab matTooltip="Add user" aria-label="Icon button with a Person icon">
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
-</div> -->
-
-
 <mat-card appearance="outlined">
     <table>
-        <thead>
+      <thead class="tableHeader">
+        <tr>
+          <th class="p-24">Name</th>
+          <th>Email</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index" (click)="openUserDialog(i)" class="tableRow">
+          <td mat-cell class="p-24">{{ user.firstname }} {{ user.lastname }}</td>
+          <td mat-cell>{{ user.email }}</td>
+          <td mat-cell>{{ user.city }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+  
+  <div class="addUser">
+    <div class="button-container">
+      <button (click)="openDialog()" mat-fab matTooltip="Add user" aria-label="Icon button with a Person icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+<!-- <mat-card appearance="outlined">
+    <table>
+        <thead class="tableHeader">
             <ng-container matColumnDef="position">
                 <tr>
-                    <th>Name</th>
+                    <th class="p-24">Name</th>
                     <th>Email</th>
                     <th>City</th>
                 </tr>
@@ -45,8 +39,8 @@
         <tbody>
             @for (user of users; track $index) {
                 <ng-container matColumnDef="position">
-                    <tr>
-                        <td mat-cell>{{ user.firstname }} {{ user.lastname }}</td>
+                    <tr (click)="openUserDialog($index)" class="tableRow">
+                        <td mat-cell class="p-24">{{ user.firstname }} {{ user.lastname }}</td>
                         <td mat-cell>{{ user.email }}</td>
                         <td mat-cell>{{ user.city }}</td>
                     </tr>
@@ -62,4 +56,4 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
-</div>
+</div> -->

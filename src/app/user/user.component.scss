@@ -9,10 +9,47 @@
     right: 56px;
     bottom: 56px;
 }
+mat-card{
+    margin: 24px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
 table {
     width: 100%;
+    border-spacing: 0px;
     thead{
-        text-align: left;
-        width: 100%;
+        tr{
+            color: rgba(255, 255, 255, 0.712);
+            th{
+                text-align: start;
+                box-sizing: border-box;
+                padding: 12px; 
+                border-collapse: collapse;
+                border-bottom: 3px solid rgb(255, 255, 255);  
+                &:first-child{
+                    padding: 4px 24px; 
+                }
+            }
+        }
     }
+    tbody{
+        .tableRow{
+            td{
+                border-bottom: 3px solid rgb(255, 255, 255); 
+                text-align: start;
+                box-sizing: border-box;
+                padding: 4px 8px; 
+                &:first-child{
+                    padding: 4px 24px; 
+                }
+            }
+            &:last-child{
+                td{
+                    border-bottom: unset;          
+                }             
+            }
+        }
+    }
+
 }

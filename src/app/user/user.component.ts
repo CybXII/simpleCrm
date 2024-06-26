@@ -11,6 +11,7 @@ import { User } from '../../models/user.class';
 import { AppComponent } from '../app.component';
 import { Observable } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
+import { getDoc } from 'firebase/firestore';
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -38,7 +39,6 @@ export class UserComponent implements OnInit {
       next: (users: User[]) => {
         this.users = users;
         this.cdr.detectChanges(); // Manuelle Change Detection
-        console.log('Users loaded:', this.users); // Debugging output
       },
       error: (error: any) => {
         console.error('Error loading users:', error);
@@ -48,5 +48,9 @@ export class UserComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+
+  openUserDialog(index: number) {
+    console.log(index);
   }
 }

@@ -17,6 +17,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { log } from 'node:console';
 @Component({
   selector: 'app-dialog-add-user',
   standalone: true,
@@ -60,8 +61,8 @@ export class DialogAddUserComponent {
   ngOnInit(): void {}
   saveUser() {
     const usersCollectionRef = collection(this.firestore, 'users');
-    addDoc(usersCollectionRef, this.user).then((result) => {
-      console.log('Adding user finished', result.id);
+    addDoc(usersCollectionRef, this.user).then(() => {
+      console.log('User saved');
     });
     if (this.birthDate) {
       this.user.birthDate = this.birthDate.getTime();
