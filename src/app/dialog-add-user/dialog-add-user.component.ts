@@ -50,7 +50,6 @@ export class DialogAddUserComponent {
     zipCode: '',
     city: '',
     email: '',
-    id: '',
   };
   birthDate?: Date;
   constructor(

@@ -1,4 +1,4 @@
-<mat-card appearance="outlined">
+<!-- <mat-card appearance="outlined">
     <table>
       <thead class="tableHeader">
         <tr>
@@ -23,9 +23,9 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
-  </div>
+  </div> -->
 
-<!-- <mat-card appearance="outlined">
+<mat-card appearance="outlined">
     <table>
         <thead class="tableHeader">
             <ng-container matColumnDef="position">
@@ -39,7 +39,7 @@
         <tbody>
             @for (user of users; track $index) {
                 <ng-container matColumnDef="position">
-                    <tr (click)="openUserDialog($index)" class="tableRow">
+                    <tr (click)="openUserDialog(user)" class="tableRow">
                         <td mat-cell class="p-24">{{ user.firstname }} {{ user.lastname }}</td>
                         <td mat-cell>{{ user.email }}</td>
                         <td mat-cell>{{ user.city }}</td>
@@ -56,4 +56,4 @@
             <mat-icon>add</mat-icon>
         </button>
     </div>
-</div> -->
+</div>

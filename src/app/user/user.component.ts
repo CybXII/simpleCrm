@@ -12,6 +12,7 @@ import { AppComponent } from '../app.component';
 import { Observable } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 import { getDoc } from 'firebase/firestore';
+import { DialogShowUserComponent } from '../dialog-show-user/dialog-show-user.component';
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -22,7 +23,7 @@ import { getDoc } from 'firebase/firestore';
     MatCardModule,
     NgFor,
     AppComponent,
-    
+    DialogShowUserComponent
   ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
@@ -50,7 +51,8 @@ export class UserComponent implements OnInit {
     this.dialog.open(DialogAddUserComponent);
   }
 
-  openUserDialog(index: number) {
-    console.log(index);
-  }
+  openUserDialog(user: User) {
+    this.dialog.open(DialogShowUserComponent, {
+      data: user});
+    }
 }
